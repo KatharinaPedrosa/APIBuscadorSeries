@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/_ajax.js"></script>
+    <script src="service.js"></script>
+
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+
+    <link href="sb-admin-2.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <link href="open-iconic/font/css/open-iconic-bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="w-100">
+        <form class="d-none d-sm-inline-block form-inline px-4 w-50 navbar-search">
+            <div class="input-group">
+                <input type="text" class="form-control bg-light border-0 small" id="busca" placeholder="Buscar por..."
+                    aria-label="Search" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="button" onclick="buscarPorTitulo()">
+                        <i class="oi oi-magnifying-glass"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+    <div class="row" id="divResultado">
+
+    </div>
+    <div id="hojeVocequer" class="row m-4" hidden>
+        <label>Hoje você quer?</label>
+    </div>
+
+    <div id="cartaoGenero" class="cartoes mt-3 ">
+        <div class="col-xl-3 col-md-6 mb-4 cartao " onclick="buscarPorGenero('35,10762')">
+            <div class="card border-left-primary shadow h-100 py-2 btn btn-light ">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                RIR</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-xl-3 col-md-6 mb-4 cartao" onclick="buscarPorGenero('18')">
+            <div class="card border-left-success shadow h-100 py-2 btn btn-light">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                CHORAR</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-xl-3 col-md-6 mb-4 cartao" onclick="buscarPorGenero('99,10765')">
+            <div class="card border-left-info shadow h-100 py-2 btn btn-light">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">PENSAR
+                            </div>
+                            <div class="row no-gutters align-items-center">
+                                <div class="col-auto">
+                                </div>
+                                <div class="col">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6 mb-4 cartao" onclick="buscarPorGenero('16,9648')">
+            <div class="card border-left-warning shadow h-100 py-2 btn btn-light">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                NÃO SEI</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    <!--Segunda Parte-->
+    <div id="porQuantoTempo" class="row m-4" hidden>
+        <label>Por quanto tempo?</label>
+    </div>
+
+    <div id="cartoesTempo" class="cartoes mt-3" hidden>
+        <div class="col-xl-3 col-md-6 mb-4 cartao" onclick="buscarPorTempo(0, 30)">
+            <div class="card border-left-primary shadow h-100 py-2 btn btn-light">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                ATÉ 30 MINUTOS</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-xl-3 col-md-6 mb-4 cartao" onclick="buscarPorTempo(31, 60)">
+            <div class="card border-left-success shadow h-100 py-2 btn btn-light">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                1 HORA</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-xl-3 col-md-6 mb-4 cartao" onclick="buscarPorTempo(61, 120)">
+            <div class="card border-left-info shadow h-100 py-2 btn btn-light">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">MAIS DE 1 HORA
+                            </div>
+                            <div class="row no-gutters align-items-center">
+                                <div class="col-auto">
+                                </div>
+                                <div class="col">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-xl-3 col-md-6 mb-4 cartao" onclick="buscarPorTempo(121,999)">
+            <div class="card border-left-warning shadow h-100 py-2 btn btn-light">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                INFINITAMENTE</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="row" id="divResultadoFiltro"></div>
+
+</body>
+
+</html>
